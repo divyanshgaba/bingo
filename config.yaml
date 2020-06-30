@@ -1,0 +1,8 @@
+name: Bingo
+mongo:
+  addresses:
+      - 'mongo-store:27017'
+  username: appUser
+  password: appUser123
+  authdb: admin
+  database: bingo

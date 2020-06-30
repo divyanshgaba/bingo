@@ -1,0 +1,34 @@
+version: '3'
+services:
+  app:
+    container_name: bingo-ms-container
+    build: .
+    ports: 
+      - 8080:8080 
+    restart: on-failure
+    volumes:
+      - ./app-volume:/usr/src/app/
+    depends_on:
+      - mongo-store
+    networks:
+      - bridge
+  
+  mongo-store:
+    image: mongo
+    container_name: 'bingo-mongo-container'
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27017:27017-27017'
+    networks:
+      - bridge
+
+# Networks to be created to facilitate communication between containers
+networks:
+  bridge:
+    driver: bridge

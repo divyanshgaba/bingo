@@ -1,0 +1,80 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Bingo",
+		"_postman_id": "f4b4451d-3be5-7663-f616-2d5d7819ba1e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create game",
+			"request": {
+				"url": "http://127.0.0.1:8080/api/game/create",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create ticket",
+			"request": {
+				"url": "http://127.0.0.1:8080/api/game/{game_id}/ticket/{user_name}/generate",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "generate number",
+			"request": {
+				"url": "http://127.0.0.1:8080/api/game/{game_id}/number/random",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get all numbers",
+			"request": {
+				"url": "http://127.0.0.1:8080/api/game/{game_id}/numbers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get stats",
+			"request": {
+				"url": "http://127.0.0.1:8080/api/game/{game_id}/stats",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "show ticket",
+			"request": {
+				"url": "http://127.0.0.1:8080/ticket/{ticket_id}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
