@@ -2,7 +2,9 @@
 ![bingo](docs/assets/bingo.jpeg?raw=true)
 
 ## Deploy
+```
 docker-compose up --build  
+```
 
 ## APIs
 1. POST /api/game/create
@@ -56,7 +58,7 @@ For manual testing: [Postman collection](docs/assets/Bingo.postman_collection.js
 1. Package `config` and `config.yaml`, holds data store credentials. 
 2. Package `bingo`,
     1. `service.go` holds all the buisiness logic.
-    2. `endpoint.go` holds each request and response schema for each endpoint. 
+    2. `endpoint.go` holds request and response schema for each endpoint. 
     3. `transport.go` holds details how each request is decoded and corresponding response is encoded.
 3. Package `game` holds domain model and repository interface for games.
 4. Package `ticket` holds domain model and repository interface for tickets.
