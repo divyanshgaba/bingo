@@ -1,0 +1,36 @@
+version: '3'
+services:
+  app-test:
+    container_name: bingo-test-ms-container
+    build:
+      context: .
+      dockerfile: ./Dockerfile.test
+    command: sh -c './wait-for-it.sh mongo-store-test:27017 -t 300 -- echo "mongo is up"'
+    ports: 
+      - 8080:8080 
+    volumes:
+      - ./app-test-volume:/usr/src/app/
+    depends_on:
+      - mongo-store-test
+    networks:
+      - bridge-test
+  
+  mongo-store-test:
+    image: mongo
+    container_name: 'bingo-test-mongo-container'
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./init-mongo.test.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-test-volume:/data/db
+    ports:
+      - '27017-27017:27017-27017'
+    networks:
+      - bridge-test
+
+# Networks to be created to facilitate communication between containers
+networks:
+  bridge-test:
+    driver: bridge

@@ -15,3 +15,5 @@
 # vendor/
 mongo-volume/
 app-volume/
+mongo-test-volume/
+app-test-volume/

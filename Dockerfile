@@ -36,7 +36,9 @@ COPY --from=builder /app/main .
 # Copy .env file
 COPY --from=builder /app/.env .     
 # Copy config file  
-Copy --from=builder /app/config.yaml .
+Copy --from=builder /app/config-prod.yaml .
+# Copy wait-for-it.sh
+Copy --from=builder /app/wait-for-it.sh .
 
 # Expose port 8080 to the outside world
 EXPOSE 8080

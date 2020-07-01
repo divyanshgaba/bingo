@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	timeout  = 10 * time.Second
+	timeout  = 60 * time.Second
 	database string
 )
 

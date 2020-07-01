@@ -7,7 +7,7 @@ docker-compose up --build
 ```
 ## Test cases
 ```
-TODO: Add automated test cases
+docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit
 ```
 ## Code structure
 This project uses [go-kit](https://github.com/go-kit/kit) framework for microservices and [MongoDB](https://www.mongodb.com/) as data store.

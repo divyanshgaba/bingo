@@ -18,7 +18,7 @@ func init() {
 	viper.AddConfigPath(".")
 	viper.SetConfigType("yaml")
 	viper.AutomaticEnv()
-	viper.SetConfigName("config")
+	viper.SetConfigName("config-" + *env)
 	if err := viper.ReadInConfig(); err != nil {
 		log.WithField("err", err).Fatal("couldn't read base config")
 	}
