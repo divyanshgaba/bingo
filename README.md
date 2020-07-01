@@ -32,29 +32,32 @@ This project uses [go-kit](https://github.com/go-kit/kit) framework for microser
 
 
 ## APIs
-1. POST /api/game/create
+For manual testing: [Postman collection](docs/assets/Bingo.postman_collection.json?raw=true)
+
+
 ```
+1. POST /api/game/create
 Success HTTP 200
 {
     "game_id": "5efbbb5c0880edb67dd9fd33"
 }
 ```
-2. POST /api/game/{game_id}/ticket/{username}/generate
 ```
+2. POST /api/game/{game_id}/ticket/{username}/generate
 Success HTTP 200
 {
     "ticket_id": "5efbbf88abaf8fdbd4aae78d"
 }
 ```
-3. GET /api/game/{game_id}/number/random
 ```
+3. GET /api/game/{game_id}/number/random
 Success HTTP 200
 {
     "number": 79
 }
 ```
-4. GET /api/game/{game_id}/numbers
 ```
+4. GET /api/game/{game_id}/numbers
 Success HTTP 200
 {
     "numbers": [
@@ -63,18 +66,16 @@ Success HTTP 200
     ]
 }
 ```
-5. GET /api/game/{game_id}/stats
 ```
+5. GET /api/game/{game_id}/stats
 Success HTTP 200
 {
     "numbers_drawn": 2,
     "tickets_generated": 1
 }
 ```
-6. GET /ticket/{ticket_id}
 ```
+6. GET /ticket/{ticket_id}
 Success HTTP 200
 ```
 ![ticket](docs/assets/ticket.png?raw=true)
-
-For manual testing: [Postman collection](docs/assets/Bingo.postman_collection.json?raw=true)
